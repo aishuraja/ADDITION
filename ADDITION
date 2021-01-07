@@ -1,0 +1,18 @@
+code segment
+assume cs:code,ds:code
+org 1000h
+mov si,2000h
+mov ax,[si]
+mov bx,[si+2]
+mov cl,00h
+add ax,bx
+mov [si+4],ax
+jnc ahead
+inc cl
+ahead:mov [si+6],cl
+hlt
+mov ah,4ch
+int 21h
+code ends
+end
+
